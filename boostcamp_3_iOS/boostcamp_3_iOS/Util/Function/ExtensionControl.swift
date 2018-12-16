@@ -19,22 +19,6 @@ extension NSObject {
 
 extension UIViewController {
     
-    //커스텀 백버튼 설정
-    func setBackBtn(color : UIColor){
-        
-        let backBTN = UIBarButtonItem(image: UIImage(named: "icBackBtn"), //백버튼 이미지 파일 이름에 맞게 변경해주세요.
-            style: .plain,
-            target: self,
-            action: #selector(self.pop))
-        navigationItem.leftBarButtonItem = backBTN
-        navigationItem.leftBarButtonItem?.tintColor = color
-        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-    }
-    
-    @objc func pop(){
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     func listActionSheet(orderHandler : @escaping (_ orderType : Int) -> Void){
         
         let alert = UIAlertController(title: "정렬방식 선택", message: "영화를 어떤방식으로 정렬할까요?", preferredStyle: .actionSheet)
